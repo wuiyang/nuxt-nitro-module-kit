@@ -47,7 +47,7 @@
     "build": "unbuild",
     "prepare": "unbuild --stub",
     "dev:nitro": "nitro dev --dir examples/nitro",
-    "dev:nuxt": "nuxt dev --dir examples/nuxt",
+    "dev:nuxt": "nuxt dev --cwd examples/nuxt",
     "lint": "eslint --cache .",
     "lint:fix": "eslint --cache . --fix",
     "prepack": "npm run build",
