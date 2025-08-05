@@ -24,16 +24,6 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
       "default": "./dist/index.mjs"
-    },
-    "./dist/runtime/*": {
-      "types": "./dist/runtime/*.d.ts",
-      "import": "./dist/runtime/*.mjs",
-      "default": "./dist/runtime/*.mjs"
-    },
-    "./runtime": {
-      "types": "./runtime.d.ts",
-      "import": "./dist/runtime/index.mjs",
-      "default": "./dist/runtime/index.mjs"
     }
   },
   "main": "./dist/index.mjs",
