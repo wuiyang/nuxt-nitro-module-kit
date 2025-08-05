@@ -1,0 +1,15 @@
+# partial from .gitignore
+/node_modules
+
+# IDE - VSCode
+.vscode
+
+# Test cases
+/test
+
+# other root files
+/*
+!/package.json
+!/README.md
+!/dist
+!/*.d.ts
