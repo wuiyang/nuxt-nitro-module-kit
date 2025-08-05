@@ -6,7 +6,7 @@ import globals from "globals";
 import tseslint from "typescript-eslint";
 
 export default defineConfig([
-  { ignores: ["**/.nitro", "**/.nuxt", "**/.output", "**/.data", "**/dist"] },
+  { ignores: ["**/.nitro", "**/.nuxt", "**/.output", "**/.data", "**/dist", "./*.d.ts"] },
   { files: ["**/*.{js,mjs,cjs,ts}"], plugins: { js }, extends: ["js/recommended"] },
   { files: ["**/*.{js,mjs,cjs,ts}"], languageOptions: { globals: globals.node } },
   tseslint.configs.recommended,
@@ -22,7 +22,7 @@ export default defineConfig([
   {
     rules: {
       "require-await": ["error"],
-      "@stylistic/quotes": ["error", "double", { avoidEscape: true, allowTemplateLiterals: true }],
+      "@stylistic/quotes": ["error", "double", { avoidEscape: true, allowTemplateLiterals: "always" }],
     },
   },
   {
