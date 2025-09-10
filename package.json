@@ -1,6 +1,6 @@
 {
   "name": "nuxt-nitro-module-kit",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Nitro module kit to develop modules for both Nuxt/Nitro with Nuxt Kit experience.",
   "keywords": [
     "nuxt",

@@ -1,6 +1,30 @@
 # Changelog
 
 
+## v0.0.4
+
+[compare changes](https://github.com/wuiyang/nuxt-nitro-module-kit/compare/v0.0.3...v0.0.4)
+
+### 🩹 Fixes
+
+- Publish code triggers prepare ([87bb1c9](https://github.com/wuiyang/nuxt-nitro-module-kit/commit/87bb1c9))
+- Incorrect imports ([bed4cc5](https://github.com/wuiyang/nuxt-nitro-module-kit/commit/bed4cc5))
+
+### 🏡 Chore
+
+- **release:** V0.0.3 ([07f82cf](https://github.com/wuiyang/nuxt-nitro-module-kit/commit/07f82cf))
+
+### 🤖 CI
+
+- Fix publish issue ([040c16f](https://github.com/wuiyang/nuxt-nitro-module-kit/commit/040c16f))
+- Remove npm token ([9046c3d](https://github.com/wuiyang/nuxt-nitro-module-kit/commit/9046c3d))
+- Update npm ([6986b35](https://github.com/wuiyang/nuxt-nitro-module-kit/commit/6986b35))
+
+### ❤️ Contributors
+
+- Wuiyang <wuiyang@live.com>
+- Github Actions ([@actions](https://github.com/actions))
+
 ## v0.0.3
 
 [compare changes](https://github.com/wuiyang/nuxt-nitro-module-kit/compare/v0.0.2...v0.0.3)
