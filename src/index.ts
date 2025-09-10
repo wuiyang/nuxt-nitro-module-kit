@@ -8,8 +8,7 @@ import { applyDefaults } from "untyped";
 import type { NuxtNitroModuleOptions, DefineNuxtNitroModule, NuxtNitroModule, NuxtNitroFramework, IsNuxtInstalled, FrameworkContext } from "./types";
 
 import { logger } from "./logger";
-import { runWithNuxtNitroContext, tryUseNuxtNitroContext } from "./utils/async-context";
-import { getCheckNuxtCompatibility, tryUseNuxt } from "./utils/common-nuxt";
+import { runWithNuxtNitroContext, tryUseNuxtNitroContext, getCheckNuxtCompatibility, tryUseNuxt } from "./utils";
 
 async function getOptions<
   TOptions extends NuxtNitroModuleOptions,
