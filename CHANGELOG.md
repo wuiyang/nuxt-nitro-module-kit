@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.0.2
+
+[compare changes](https://github.com/wuiyang/nuxt-nitro-module-kit/compare/v0.0.2...v0.0.2)
+
+### 🤖 CI
+
+- Should be using NPM_TOKEN ([59f9633](https://github.com/wuiyang/nuxt-nitro-module-kit/commit/59f9633))
+
+### ❤️ Contributors
+
+- Wuiyang <wuiyang@live.com>
+
 ## v0.0.1
 
 
