@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.0.5
+
+[compare changes](https://github.com/wuiyang/nuxt-nitro-module-kit/compare/v0.0.4...v0.0.5)
+
+### 🏡 Chore
+
+- **release:** V0.0.4 ([ed01c52](https://github.com/wuiyang/nuxt-nitro-module-kit/commit/ed01c52))
+
+### ❤️ Contributors
+
+- Github Actions ([@actions](https://github.com/actions))
+
 ## v0.0.4
 
 [compare changes](https://github.com/wuiyang/nuxt-nitro-module-kit/compare/v0.0.3...v0.0.4)
