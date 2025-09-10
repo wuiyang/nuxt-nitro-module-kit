@@ -5,7 +5,9 @@ on:
 
 # Remove default permissions of GITHUB_TOKEN for security
 # https://docs.github.com/en/actions/using-jobs/assigning-permissions-to-jobs
-permissions: {}
+permissions:
+  id-token: write
+  contents: read
 
 jobs:
   release:
