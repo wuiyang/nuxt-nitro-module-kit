@@ -31,8 +31,6 @@ jobs:
 
       - name: Install dependencies 🔧
         run: npm ci
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Build and publish package on NPM 📦
         run: |
@@ -40,5 +38,4 @@ jobs:
           git config --global user.email "actions@users.noreply.github.com"
           npm run release
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           CHANGELOGEN_TOKENS_GITHUB: ${{ secrets.GITHUB_TOKEN }}
