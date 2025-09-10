@@ -40,7 +40,7 @@
   "sideEffects": false,
   "scripts": {
     "build": "unbuild",
-    "prepare": "unbuild --stub",
+    "dev:prepare": "unbuild --stub",
     "dev:nitro": "nitro dev --dir examples/nitro",
     "dev:nuxt": "nuxt dev --cwd examples/nuxt",
     "lint": "eslint --cache .",
