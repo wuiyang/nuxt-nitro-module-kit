@@ -5,8 +5,7 @@ import { fileURLToPath } from "mlly";
 import { existsSync, mkdirSync, writeFileSync } from "node:fs";
 import { dirname, isAbsolute, join, normalize, relative, resolve } from "pathe";
 
-import type { FrameworkContext } from "../../types";
-import type { MaybeNuxt } from "../types";
+import type { FrameworkContext, MaybeNuxt } from "../types";
 
 import { logger } from "../logger";
 import { useNuxtNitroContext } from "./async-context";
