@@ -67,6 +67,9 @@
   "dependencies": {
     "consola": "^3.4.2",
     "defu": "^6.1.4",
+    "errx": "^0.1.0",
+    "mlly": "^1.8.0",
+    "pathe": "^2.0.3",
     "unctx": "^2.4.1",
     "untyped": "^2.0.0"
   }
