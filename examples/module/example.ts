@@ -1,4 +1,5 @@
-import { defineNuxtNitroModule } from "../..";
+import { defineNuxtNitroModule } from "nuxt-nitro-module-kit";
+import { addTypeTemplate } from "nuxt-nitro-module-kit/utils";
 
 export interface ExampleNuxtNitroModuleOptions {
   version?: string;
@@ -31,6 +32,17 @@ export default defineNuxtNitroModule<ExampleNuxtNitroModuleOptions>({
     if (resolvedOptions.useDebug) {
       console.log("using debug mode");
     }
+
+    addTypeTemplate({
+      filename: "types/example-nuxt-nitro-module.d.ts",
+      getContents: () => `// test generate
+declare module "#example-nuxt-nitro-module" {
+  export interface ExampleNuxtNitroModuleExtra {
+    a: 1;
+  }
+}
+`,
+    });
 
     if (context.nuxt) {
       console.log("Nuxt exists!");
