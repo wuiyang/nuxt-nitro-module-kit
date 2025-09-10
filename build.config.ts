@@ -17,7 +17,7 @@ export default defineBuildConfig({
     async "build:prepare"() {
       await Promise.all(
         typeDefDirs.map(dir =>
-          writeFile(`./${dir}.d.ts`, `export * from "./dist/${dir}/index";`),
+          writeFile(`./${dir}.d.ts`, `export * from "./dist/${dir}";`),
         ),
       );
     },
