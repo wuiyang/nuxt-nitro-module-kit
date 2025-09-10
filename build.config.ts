@@ -1,13 +1,15 @@
 import { writeFile } from "node:fs/promises";
 import { defineBuildConfig } from "unbuild";
 
-const typeDefDirs = ["runtime", "types"];
+const typeDefDirs = ["runtime", "types", "utils"];
 
 export default defineBuildConfig({
   declaration: true,
   entries: [
     // module entrypoint
     { input: "src/index.ts", outDir: "dist", format: "esm" },
+    // Utils
+    { input: "src/utils.ts" },
     // Types
     { input: "src/types.ts" },
   ],

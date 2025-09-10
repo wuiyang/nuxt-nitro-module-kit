@@ -9,7 +9,7 @@ import type { NuxtNitroModuleOptions, DefineNuxtNitroModule, NuxtNitroModule, Nu
 
 import { logger } from "./logger";
 import { runWithNuxtNitroContext, tryUseNuxtNitroContext } from "./utils/async-context";
-import { getCheckNuxtCompatibility, tryUseNuxt } from "./utils/try-load";
+import { getCheckNuxtCompatibility, tryUseNuxt } from "./utils/common-nuxt";
 
 async function getOptions<
   TOptions extends NuxtNitroModuleOptions,
