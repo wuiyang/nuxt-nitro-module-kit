@@ -1,6 +1,27 @@
 # Changelog
 
 
+## v0.0.6
+
+[compare changes](https://github.com/wuiyang/nuxt-nitro-module-kit/compare/v0.0.5...v0.0.6)
+
+### 🩹 Fixes
+
+- Missing export types ([521546c](https://github.com/wuiyang/nuxt-nitro-module-kit/commit/521546c))
+
+### 📖 Documentation
+
+- Added coding example and details ([0a7728a](https://github.com/wuiyang/nuxt-nitro-module-kit/commit/0a7728a))
+
+### 🏡 Chore
+
+- **release:** V0.0.5 ([4c365ec](https://github.com/wuiyang/nuxt-nitro-module-kit/commit/4c365ec))
+
+### ❤️ Contributors
+
+- Wuiyang <wuiyang@live.com>
+- Github Actions ([@actions](https://github.com/actions))
+
 ## v0.0.5
 
 [compare changes](https://github.com/wuiyang/nuxt-nitro-module-kit/compare/v0.0.4...v0.0.5)
