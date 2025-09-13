@@ -1,3 +1,5 @@
+import type { NuxtNitroModule } from "nuxt-nitro-module-kit/types";
+
 import { defineNuxtNitroModule } from "nuxt-nitro-module-kit";
 import { addTypeTemplate } from "nuxt-nitro-module-kit/utils";
 
@@ -6,7 +8,7 @@ export interface ExampleNuxtNitroModuleOptions {
   useDebug?: boolean;
 }
 
-export default defineNuxtNitroModule<ExampleNuxtNitroModuleOptions>({
+export default (defineNuxtNitroModule<ExampleNuxtNitroModuleOptions>({
   meta: {
     name: "example-nuxt-nitro-module",
     compatibility: {
@@ -48,4 +50,4 @@ declare module "#example-nuxt-nitro-module" {
       console.log("Nuxt exists!");
     }
   },
-});
+}) as NuxtNitroModule<ExampleNuxtNitroModuleOptions>);

@@ -1,5 +1,7 @@
 # Nuxt/Nitro Module Kit
 
+[![npm version](https://img.shields.io/npm/v/nuxt-nitro-module-kit)](https://npmjs.com/package/nuxt-nitro-module-kit)
+
 Easily develop nitro modules that integrates to both Nitro and Nuxt natively with Nuxt Kit experience.
 
 ## Usage
@@ -17,6 +19,73 @@ You could also use [unjs/nypm](https://nypm.unjs.io), it will automatically dete
 ```sh
 npx nypm@latest add nuxt-nitro-module-kit
 ```
+
+### Development
+
+For detailed example, check out [example module](./examples/module/) and [nitro](./examples/nitro/) or [nuxt](./examples/nuxt/) usage example.
+
+Similar to `defineNuxtModule` provided by `@nuxt/kit`, use `defineNuxtNitroModule` provided by `nuxt-nitro-module-kit` instead.
+
+Due to typescript build infer issue, it is recommended to wrap return value of `defineNuxtNitroModule` with `NuxtNitroModule<T>`.
+
+```ts
+import type { NuxtNitroModule } from "nuxt-nitro-module-kit/types";
+
+import { defineNuxtNitroModule } from "nuxt-nitro-module-kit";
+
+export interface ExampleNuxtNitroModuleOptions {}
+
+export default (defineNuxtNitroModule<ExampleNuxtNitroModuleOptions>({
+  meta: {
+    name: "example-nuxt-nitro-module",
+    compatibility: {
+      nuxt: ">=3.0.0",
+    },
+    configKey: "example",
+    version: "1.0.0",
+  },
+  hooks: {
+    "dev:start"() {
+      console.log("dev server started, tracked by example nuxt/nitro module");
+    },
+    "compiled"() {
+      console.log("nitro completed compile, tracked by example nuxt/nitro module");
+    },
+  },
+  defaults: {
+    version: "1.0.0",
+  },
+  setup(resolvedOptions, context) {
+    console.log("Provided options", resolvedOptions);
+
+    if (resolvedOptions.useDebug) {
+      console.log("using debug mode");
+    }
+
+    if (context.nuxt) {
+      console.log("Nuxt exists!");
+    }
+  },
+}) as NuxtNitroModule<ExampleNuxtNitroModuleOptions>);
+```
+
+### Helper functions
+
+Currently only specific subset of Nuxt Kit functions are ported to Nuxt/Nitro Module Kit.
+In the future there should be almost 100% exact behavior between both, with just change on import from `nuxt-nitro-module-kit`.
+
+Additional helpers provided to improve development:
+- `useNuxtNitroContext`, `tryUseNuxtNitroContext`, `runWithNuxtNitroContext` - `unctx` value for getting current nuxt/nitro. Not that in only works inside `setup` context.
+- `getNuxtKit` - get `@nuxt/kit` if installed.
+- `tryUseNuxt` - run `tryUseNuxt` if Nuxt is installed.
+- `getCheckNuxtCompatibility` - get `checkNuxtCompatibility` function if Nuxt is installed.
+
+### Nuxt Kit Bridge Status
+
+Nuxt Kit Function | Behavior Note
+ ---------------- | -------------------------
+`addTemplate`     | Currently only works for type template.
+`addTypeTemplate` | Same behavior as `@nuxt/kit`.
 
 ## Developed Module Usage
 
