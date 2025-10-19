@@ -1,7 +1,7 @@
 import { relative } from "path";
 import { join } from "pathe";
 
-import type { FrameworkContext } from "../types";
+import type { FrameworkContext, NuxtNitroFramework } from "../types";
 
 import { useNuxtNitroContext } from "./async-context";
 
@@ -14,6 +14,7 @@ export interface NuxtNitroLayerMeta {
 export interface NuxtNitroLayer {
   meta: NuxtNitroLayerMeta;
   cwd: string;
+  options: NuxtNitroFramework["options"];
   dirs: {
     rootDir: string;
     serverDir: string;
@@ -39,6 +40,7 @@ function extractNitroLayers(framework: FrameworkContext) {
     const layerInfo: NuxtNitroLayer = {
       meta: {},
       cwd: rootDir,
+      options: framework.nitro.options as never,
       dirs: {
         rootDir,
         serverDir,
@@ -68,6 +70,7 @@ function extractNuxtLayers(framework: FrameworkContext) {
     const layerInfo: NuxtNitroLayer = {
       meta: layer.meta || {},
       cwd: layer.cwd,
+      options: layer.config as never,
       dirs: {
         rootDir: layer.config.rootDir,
         serverDir: layer.config.serverDir || `${layer.config.rootDir}`,
