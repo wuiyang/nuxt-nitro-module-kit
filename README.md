@@ -82,10 +82,11 @@ Additional helpers provided to improve development:
 
 ### Nuxt Kit Bridge Status
 
-Nuxt Kit Function | Behavior Note
- ---------------- | -------------------------
-`addTemplate`     | Currently only works for type template.
-`addTypeTemplate` | Same behavior as `@nuxt/kit`.
+Nuxt Kit Function     | Behavior Note
+ -------------------- | -------------------------
+`addTemplate`         | Currently only works for type template.
+`addTypeTemplate`     | Same behavior as `@nuxt/kit`.
+`getLayerDirectories` | Same behavior as `@nuxt/kit`.
 
 ## Developed Module Usage
 

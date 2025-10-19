@@ -1,7 +1,8 @@
 import type { NuxtNitroModule } from "nuxt-nitro-module-kit/types";
 
 import { defineNuxtNitroModule } from "nuxt-nitro-module-kit";
-import { addTypeTemplate } from "nuxt-nitro-module-kit/utils";
+import { addTypeTemplate, getLayerDirectories } from "nuxt-nitro-module-kit/utils";
+import { relative } from "pathe";
 
 export interface ExampleNuxtNitroModuleOptions {
   version?: string;
@@ -49,5 +50,9 @@ declare module "#example-nuxt-nitro-module" {
     if (context.nuxt) {
       console.log("Nuxt exists!");
     }
+
+    console.log(JSON.stringify(getLayerDirectories()));
+    console.log(relative(context.nitro.options.srcDir, context.nitro.options.rootDir));
+    console.log("all layers name: ", getLayerDirectories().map(x => x.meta.name || "default"));
   },
 }) as NuxtNitroModule<ExampleNuxtNitroModuleOptions>);
