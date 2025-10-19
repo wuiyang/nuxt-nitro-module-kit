@@ -1,6 +1,28 @@
 # Changelog
 
 
+## v0.0.7
+
+[compare changes](https://github.com/wuiyang/nuxt-nitro-module-kit/compare/v0.0.6...v0.0.7)
+
+### 🚀 Enhancements
+
+- Added get layers ([5b59587](https://github.com/wuiyang/nuxt-nitro-module-kit/commit/5b59587))
+
+### 📖 Documentation
+
+- Documented get layers ([a66027d](https://github.com/wuiyang/nuxt-nitro-module-kit/commit/a66027d))
+
+### 🏡 Chore
+
+- **release:** V0.0.6 ([f70412a](https://github.com/wuiyang/nuxt-nitro-module-kit/commit/f70412a))
+- Update deps ([5e96165](https://github.com/wuiyang/nuxt-nitro-module-kit/commit/5e96165))
+
+### ❤️ Contributors
+
+- Wuiyang <wuiyang@live.com>
+- Github Actions ([@actions](https://github.com/actions))
+
 ## v0.0.6
 
 [compare changes](https://github.com/wuiyang/nuxt-nitro-module-kit/compare/v0.0.5...v0.0.6)
