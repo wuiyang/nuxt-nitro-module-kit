@@ -11,14 +11,16 @@ export interface NuxtNitroLayerMeta {
   [key: string]: any;
 }
 
+export interface NuxtNitroLayerDirectories {
+  root: string;
+  server: string;
+}
+
 export interface NuxtNitroLayer {
   meta: NuxtNitroLayerMeta;
   cwd: string;
   options: NuxtNitroFramework["options"];
-  dirs: {
-    rootDir: string;
-    serverDir: string;
-  };
+  dirs: NuxtNitroLayerDirectories;
 }
 
 const nitroLayerMap = new Map<string, NuxtNitroLayer>();
@@ -42,8 +44,8 @@ function extractNitroLayers(framework: FrameworkContext) {
       cwd: rootDir,
       options: framework.nitro.options as never,
       dirs: {
-        rootDir,
-        serverDir,
+        root: rootDir,
+        server: serverDir,
       },
     };
 
@@ -72,8 +74,8 @@ function extractNuxtLayers(framework: FrameworkContext) {
       cwd: layer.cwd,
       options: layer.config as never,
       dirs: {
-        rootDir: layer.config.rootDir,
-        serverDir: layer.config.serverDir || `${layer.config.rootDir}`,
+        root: layer.config.rootDir,
+        server: layer.config.serverDir || `${layer.config.rootDir}`,
       },
     };
 
@@ -82,7 +84,12 @@ function extractNuxtLayers(framework: FrameworkContext) {
   });
 }
 
-export function getLayerDirectories() {
+export function getLayerConfigurations(): NuxtNitroLayer[] {
   const framework = useNuxtNitroContext();
   return framework.nuxt ? extractNuxtLayers(framework) : extractNitroLayers(framework);
+}
+
+export function getLayerDirectories(): NuxtNitroLayerDirectories[] {
+  const layers = getLayerConfigurations();
+  return layers.map(layer => layer.dirs);
 }

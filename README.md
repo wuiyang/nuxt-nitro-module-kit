@@ -79,6 +79,7 @@ Additional helpers provided to improve development:
 - `getNuxtKit` - get `@nuxt/kit` if installed.
 - `tryUseNuxt` - run `tryUseNuxt` if Nuxt is installed.
 - `getCheckNuxtCompatibility` - get `checkNuxtCompatibility` function if Nuxt is installed.
+- `getLayerConfigurations` - get layer options and directories
 
 ### Nuxt Kit Bridge Status
 
@@ -86,7 +87,7 @@ Nuxt Kit Function     | Behavior Note
  -------------------- | -------------------------
 `addTemplate`         | Currently only works for type template.
 `addTypeTemplate`     | Same behavior as `@nuxt/kit`.
-`getLayerDirectories` | Same behavior as `@nuxt/kit`.
+`getLayerDirectories` | Same behavior as `@nuxt/kit` but only having `root` and `server` directory.
 
 ## Developed Module Usage
 
