@@ -56,25 +56,36 @@ async function toNuxtModule<
     }
   }
 
-  const options = await getOptions(nuxt, definition, inlineOptions);
-  const start = performance.now();
-  nuxt.hooks.hook("nitro:config", (nitroConfig) => {
-    nitroConfig.modules ||= [];
-    nitroConfig.modules.push(async (nitro) => {
-      const context: FrameworkContext = {
-        nuxt,
-        nitro,
-      };
-      await runWithNuxtNitroContext(context, () => toNitroModule(definition, nitro, options));
+  const setupTime = await warnOnSlowSetup(async () => {
+    const options = await getOptions(nuxt, definition, inlineOptions);
+    nuxt.hooks.hook("nitro:config", (nitroConfig) => {
+      nitroConfig.modules ||= [];
+      nitroConfig.modules.push(async (nitro) => {
+        const context: FrameworkContext = {
+          nuxt,
+          nitro,
+        };
+        await runWithNuxtNitroContext(context, () => toNitroModule(definition, nitro, options));
+      });
     });
   });
-  const perf = performance.now() - start;
-  const setupTime = Math.round(perf * 100) / 100;
-  if (setupTime > 5e3 && uniqueKey !== "@nuxt/telemetry") {
-    logger.warn(`Slow module \`${uniqueKey || "<no name>"}\` took \`${setupTime}ms\` to setup.`);
-  } else if (nuxt.options.debug && nuxt.options.debug.modules) {
-    logger.info(`Module \`${uniqueKey || "<no name>"}\` took \`${setupTime}ms\` to setup.`);
+
+  async function warnOnSlowSetup<T>(executionFn: () => Promise<T>): Promise<number> {
+    const start = performance.now();
+
+    await executionFn();
+
+    const perf = performance.now() - start;
+    const setupTime = Math.round(perf * 100) / 100;
+    if (setupTime > 5e3) {
+      logger.warn(`Slow module \`${uniqueKey || "<no name>"}\` took \`${setupTime}ms\` to setup.`);
+    } else if (nuxt.options.debug && nuxt.options.debug.modules) {
+      logger.info(`Module \`${uniqueKey || "<no name>"}\` took \`${setupTime}ms\` to setup.`);
+    }
+
+    return setupTime;
   }
+
   return {
     timings: {
       setup: setupTime,
