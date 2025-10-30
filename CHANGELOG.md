@@ -1,6 +1,30 @@
 # Changelog
 
 
+## v0.0.8
+
+[compare changes](https://github.com/wuiyang/nuxt-nitro-module-kit/compare/v0.0.7...v0.0.8)
+
+### 🚀 Enhancements
+
+- Added layer config in layer data ([847bf35](https://github.com/wuiyang/nuxt-nitro-module-kit/commit/847bf35))
+- Added add server template ([b5cfb59](https://github.com/wuiyang/nuxt-nitro-module-kit/commit/b5cfb59))
+- Updated warning to be a function ([5750c3b](https://github.com/wuiyang/nuxt-nitro-module-kit/commit/5750c3b))
+- Added get update templates for nuxt ([0b73383](https://github.com/wuiyang/nuxt-nitro-module-kit/commit/0b73383))
+
+### 🩹 Fixes
+
+- GetLayerDirectories is not the same as nuxt kit ([7948bed](https://github.com/wuiyang/nuxt-nitro-module-kit/commit/7948bed))
+
+### 🏡 Chore
+
+- **release:** V0.0.7 ([546d45d](https://github.com/wuiyang/nuxt-nitro-module-kit/commit/546d45d))
+
+### ❤️ Contributors
+
+- Wuiyang <wuiyang@live.com>
+- Github Actions ([@actions](https://github.com/actions))
+
 ## v0.0.7
 
 [compare changes](https://github.com/wuiyang/nuxt-nitro-module-kit/compare/v0.0.6...v0.0.7)
