@@ -59,6 +59,12 @@ export interface ResolvedNuxtNitroTemplate<Options = TemplateDefaultOptions> ext
   modified?: boolean;
 }
 
+export interface NitroServerTemplate {
+  /** The target filename once the template is copied into the Nuxt buildDir */
+  filename: string;
+  getContents: () => string | Promise<string>;
+}
+
 /** simplified version of nuxt/kit's normalizeTemplate */
 function normalizeTemplate<T>(template: NuxtNitroTemplate<T>, context: FrameworkContext): ResolvedNuxtNitroTemplate<T> {
   template = { ...template };
@@ -252,6 +258,18 @@ export function addTypeTemplate<T>(_template: NuxtNitroTypeTemplate<T>): Resolve
     });
     context.nitro.hooks.hook("types:extend", () => processTemplate(template, context));
   }
+
+  return template;
+}
+
+/**
+ * Adds a virtual file that can be used within the Nuxt Nitro server build.
+ */
+export function addServerTemplate(template: NitroServerTemplate) {
+  const context = useNuxtNitroContext();
+
+  context.nitro.options.virtual ||= {};
+  context.nitro.options.virtual[template.filename] = template.getContents;
 
   return template;
 }
